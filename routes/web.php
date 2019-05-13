@@ -15,11 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('/atividades/create', 'AtividadeController@create');
 Route::get('/atividades', 'AtividadeController@index');
+Route::get('/atividades/{id}', 'AtividadeController@show');
+Route::get('/atividades/{id}/edit', 'AtividadeController@edit');
+Route::put('/atividades/{id}', 'AtividadeController@update');
+Route::post('/atividades', 'AtividadeController@store');
 
-
-
+Route::get('/mensagem/create', 'mensagemController@create');
+Route::get('/mensagem', 'mensagemController@index');
+Route::get('/mensagem/{id}', 'mensagemController@show');
+Route::get('/mensagem/{id}/edit', 'mensagemController@edit');
+Route::put('/mensagem/{id}', 'mensagemController@update');
+Route::post('/mensagem', 'mensagemController@store');
 
 
 
