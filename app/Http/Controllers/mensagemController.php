@@ -65,7 +65,7 @@ class mensagemController extends Controller
             $obj_Mensagem->texto = $request['texto'];
             $obj_Mensagem->autor = $request['autor'];
             $obj_Mensagem->save();
-            return redirect('/mensagem')->with('success', 'Mensagem criada com sucesso!!');
+            return redirect('/mensagem')->with('sucess', 'Mensagem criada com sucesso!!');
         }
 
     /**
@@ -128,7 +128,7 @@ class mensagemController extends Controller
             $obj_Mensagem->texto = $request['texto'];
             $obj_Mensagem->autor = $request['autor'];
             $obj_Mensagem->save();
-            return redirect('/mensagem')->with('success', 'Mensagem criada com sucesso!!');
+            return redirect('/mensagem')->with('sucess', 'Mensagem alterada com sucesso!!');
     }
 
     /**
@@ -137,8 +137,16 @@ class mensagemController extends Controller
      * @param  \App\Mensagem  $mensagem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mensagem $mensagem)
+    public function delete($id)
     {
-        //
+        $obj_Mensagem = Mensagem::find($id);
+        return view('mensagem.delete',['mensagem' => $obj_Mensagem]);
+    }
+
+    public function destroy($id)
+    {
+        $obj_Mensagem = Mensagem::findOrFail($id);
+        $obj_Mensagem->delete($id);
+        return redirect('/mensagem')->with('sucess',"Mensagem excluída com sucesso!!");
     }
 }
