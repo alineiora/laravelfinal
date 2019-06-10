@@ -15,13 +15,17 @@ class mensagemTableSeeder extends Seeder
         Mensagem::create([
             'titulo' => 'Prova de Matemática',
             'texto' => 'Prova',
-            'autor' => 'Aline'
+            'autor' => 'Aline',
+            'user_id' => 1,
+            'atividade_id' => 1
         ]);
 
         Mensagem::create([
             'titulo' => 'Prova',
             'texto' => 'Prova',
-            'autor' => 'Aline'
+            'autor' => 'Aline',
+            'user_id' => 1,
+            'atividade_id' => 1
         ]);
     }
 }
