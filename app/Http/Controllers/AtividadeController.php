@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Auth;
 use App\Atividade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
