@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <h2>Detalhes da atividade</h2>
 <hr>
 <h3><b>ID: </b>{{$atividade->id}}</h3>
@@ -28,3 +30,4 @@
                 @endforeach
             </tbody>
         </table>
+        @endsection

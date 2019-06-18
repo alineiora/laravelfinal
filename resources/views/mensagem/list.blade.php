@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <h1>Lista de Mensagens</h1>
 <hr>
 @if ($errors->any())
@@ -37,3 +39,4 @@
 		<br><br>
 		@endauth
 @endforeach
+@endsection

@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <h1>Formulário de Cadastro de Atividade </h1>
 <hr>
 
@@ -30,3 +32,4 @@
 
     <input type="submit" value="Salvar">
 </form>
+@endsection
