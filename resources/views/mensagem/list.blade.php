@@ -39,4 +39,5 @@
 		<br><br>
 		@endauth
 @endforeach
+{{$mensagem->links()}}
 @endsection

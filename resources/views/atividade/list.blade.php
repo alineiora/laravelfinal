@@ -39,6 +39,7 @@
 		<br> <br>
 	@endauth
 @endforeach
+{{$atividades->links()}}
 @endsection
 
 <!-- \Carbon\Carbon::parse($a->scheduledto)->format('d/m/Y h:m')  -->

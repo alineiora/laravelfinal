@@ -18,8 +18,14 @@ class mensagemController extends Controller
      */
     public function index()
     {
-        $listamensagem = Mensagem::all();
-        return view('mensagem.list',['mensagem' => $listamensagem]);
+        if(Auth::check() ){
+            $listaMensagens = Mensagem::where('user_id', Auth::id() )->paginate(3);
+        }
+        else{
+            $listaMensagens = Mensagem::paginate(3);
+        }
+
+        return view('mensagem.list',['mensagem' => $listaMensagens]);
     }
 
     /**

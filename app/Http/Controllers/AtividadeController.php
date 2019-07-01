@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Auth;
 use App\Atividade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class AtividadeController extends Controller
 {
@@ -16,7 +18,13 @@ class AtividadeController extends Controller
      */
     public function index()
     {
-        $listaAtividades = Atividade::all();
+        if(Auth::check() ){
+            $listaAtividades = Atividade::where('user_id', Auth::id() )->paginate(3);
+        }
+        else{
+            $listaAtividades = Atividade::paginate(3);
+        }
+        
         return view('atividade.list',['atividades' => $listaAtividades]);
     }
 
@@ -65,6 +73,7 @@ class AtividadeController extends Controller
         $obj_Atividade->title =       $request['title'];
         $obj_Atividade->description = $request['description'];
         $obj_Atividade->scheduledto = $request['scheduledto'];
+        $obj_Atividade->user_id     = Auth::id();
         $obj_Atividade->save();
         return redirect('/atividades')->with('sucess', 'Atividade criada com sucesso!!');
     }
@@ -77,7 +86,7 @@ class AtividadeController extends Controller
      */
     public function show($id)
     {
-        $atividade = Atividade::find($id)->with('mensagens')->get()->first();
+        $atividade = Atividade::where('id',$id)->with('mensagens')->get()->first();
         return view('atividade.show',['atividade' => $atividade]);
     }
 
@@ -128,6 +137,7 @@ class AtividadeController extends Controller
         $obj_Atividade->title =       $request['title'];
         $obj_Atividade->description = $request['description'];
         $obj_Atividade->scheduledto = $request['scheduledto'];
+        $obj_Atividade->user_id     = Auth::id();
         $obj_Atividade->save();
         return redirect('/atividades')->with('sucess', 'Atividade alterada com sucesso!!');
     }

@@ -19,10 +19,10 @@
 				<a class="nav-link" href="/atividades/create" id="help" aria-haspopup="true" aria-expanded="false">Criar Atividades</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/mensagens" id="help" aria-haspopup="true" aria-expanded="false">Listar Mensagens</a>
+				<a class="nav-link" href="/mensagem" id="help" aria-haspopup="true" aria-expanded="false">Listar Mensagens</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/mensagens/create" id="help" aria-haspopup="true" aria-expanded="false">Criar Mensagens</a>
+				<a class="nav-link" href="/mensagem/create" id="help" aria-haspopup="true" aria-expanded="false">Criar Mensagens</a>
 			</li>
 		</ul>
 
